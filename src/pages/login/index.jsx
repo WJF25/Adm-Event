@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
-import {useUser} from '../../providers/user/user'
+import { useUser } from "../../providers/user/user";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,11 +13,14 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: "25ch",
     },
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 }));
 
 const schema = yup.object().shape({
-  nome: yup.string().required("Nome obrigatório").,
+  nome: yup.string().required("Nome obrigatório"),
   email: yup.string().required("Email obrigatório").email("Email inválido"),
   password: yup
     .string()
@@ -44,7 +47,7 @@ export const Login = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    const { email, nome } = data;    
+    const { email, nome } = data;
     localStorage.setItem("@Event:e-mail", JSON.stringify(email));
     localStorage.setItem("@Event:e-mail", JSON.stringify(nome));
     addUser(nome);
@@ -60,7 +63,7 @@ export const Login = () => {
         autoComplete="on"
         onSubmit={handleSubmit(onSubmit)}
       >
-         <p style={{ color: "red" }}>{errors.nome?.message}</p>
+        <p style={{ color: "red" }}>{errors.nome?.message}</p>
         <TextField label="nome" name="nome" {...register("nome")} />
         <p style={{ color: "red" }}>{errors.email?.message}</p>
         <TextField label="E-mail" name="E-mail" {...register("email")} />

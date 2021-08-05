@@ -1,5 +1,11 @@
+import { CardShow } from "../../components/ExibitionCard";
+import { useCatalogue } from "../../providers/catalogo";
+
 export const Home = () => {
-  return;
+  const { catalogue } = useCatalogue();
+  console.log(catalogue);
+
+  return <CardShow />;
 };
 
 //tela home precisa ter o link para as pages formatura-confraternização-casamento

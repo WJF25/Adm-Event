@@ -9,9 +9,9 @@ export const Routes = () => {
   return (
     <div className="Routes">
       <Switch>
-        <Route>
+        {/* <Route>
           <Login exact path="/" />
-        </Route>
+        </Route> */}
         <Route path="/home">
           <Home />
         </Route>
