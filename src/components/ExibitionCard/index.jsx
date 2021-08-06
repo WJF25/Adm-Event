@@ -5,14 +5,19 @@ import { useCatalogue } from "../../providers/catalogo";
 import { useCasorio } from "../../providers/casamento";
 import { useForma } from "../../providers/formatura";
 import { useConfra } from "../../providers/confraternização";
-import { Button } from "../../styles/button.style";
+import {
+  Button,
+  ButtonCasa,
+  ButtonConfra,
+  SectionCard,
+} from "../../styles/button.style";
 import { Img } from "../../styles/img.style";
 import { Card } from "../../styles/card.style";
 import { Sublista } from "../../styles/sublista.style";
 
 export const CardShow = () => {
   const [show, setShow] = useState(false);
-  const { catalogue } = useCatalogue();
+  const { catalogue, apiGet } = useCatalogue();
   const { idGenerator } = generators;
   const { addCasoDrinks } = useCasorio();
   const { addConfraDrinks } = useConfra();
@@ -36,8 +41,13 @@ export const CardShow = () => {
     addFormaDrinks(chosen);
   };
 
+  const handleClikList = () => {
+    apiGet();
+  };
+
   return (
     <Card className="ExbitionCard">
+      <Button onClick={handleClikList}>GERAR LISTA </Button>
       <ul>
         {catalogue.map((item) => (
           <li key={idGenerator(99999)}>
@@ -69,19 +79,18 @@ export const CardShow = () => {
                 <Button onClick={() => handleClick(false)}>Fechar</Button>
               </div>
             )}
-            {/* <Button onClick={() => handleClick(true)}>
-              Com o quê essa bebida combina?{" "}
-            </Button> */}
-            <Button onClick={() => handleClickCas(item.id)}>
-              Escolher para Casamento
-            </Button>
-            <Button onClick={() => handleClickConfra(item.id)}>
-              Escolher para Confraternização{" "}
-            </Button>
-            <Button onClick={() => handleClickForma(item.id)}>
-              Escolher para Formatura{" "}
-            </Button>
-            <a href="#top">voltar ao topo</a>
+            <SectionCard>
+              <ButtonCasa onClick={() => handleClickCas(item.id)}>
+                Escolher para Casamento
+              </ButtonCasa>
+              <ButtonConfra onClick={() => handleClickConfra(item.id)}>
+                Escolher para Confraternização{" "}
+              </ButtonConfra>
+              <Button onClick={() => handleClickForma(item.id)}>
+                Escolher para Formatura{" "}
+              </Button>
+              <a href="#top">voltar ao topo</a>
+            </SectionCard>
           </li>
         ))}
       </ul>

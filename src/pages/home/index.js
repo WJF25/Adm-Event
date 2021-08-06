@@ -9,8 +9,7 @@ import { WraperHome } from "../../styles/titulo.style";
 import trem1 from "../../assets/trem1.png";
 
 export const Home = () => {
-  const { catalogue, nextPage, prevPage, page } = useCatalogue();
-  console.log(catalogue);
+  const { nextPage, prevPage, page } = useCatalogue();
 
   const handleClickPrev = () => {
     if (page === 1) {
@@ -28,10 +27,11 @@ export const Home = () => {
     }
   };
 
-  // const { token } = useUser();
-  // if (!token) {
-  //   return <Redirect to="/" />;
-  // }
+  const { auth } = useUser();
+  console.log(auth);
+  if (!auth) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="HomeCaontainer">

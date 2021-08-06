@@ -37,3 +37,19 @@ export const Section = styled.section`
   width: 30%;
   margin: 10px auto;
 `;
+
+export const SectionCard = styled.section`
+  margin: 0;
+`;
+
+export const ButtonRemove = styled(Button)`
+  background-color: red;
+`;
+
+export const ButtonConfra = styled(Button)`
+  background-color: blue;
+`;
+
+export const ButtonCasa = styled(Button)`
+  background-color: #b4b436;
+`;

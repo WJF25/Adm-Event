@@ -8,7 +8,6 @@ export const CasorioProvider = ({ children }) => {
   const addCasoDrinks = (escolhaCas) => {
     setCasaDrinks([...casaDrinks, escolhaCas]);
   };
-  console.log(casaDrinks);
 
   return (
     <CasorioContext.Provider

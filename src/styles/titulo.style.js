@@ -50,3 +50,19 @@ export const WraperHome = styled.h1`
     padding: 20px;
   }
 `;
+
+export const Header = styled.header`
+  padding: 20px;
+  background-color: #2966da;
+  a {
+    color: rgba(36, 120, 246, 0.822);
+    text-decoration: none;
+    margin: 0 auto;
+    width: 50%;
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    color: #51d151;
+    font-size: 18px;
+  }
+`;

@@ -16,12 +16,20 @@ export const Sublista = styled.ul`
   a {
     color: rgba(36, 120, 246, 0.822);
     text-decoration: none;
-    margin: 20px auto;
+    margin: 30px auto;
     font-size: 20px;
+    border: 1px solid rgba(36, 120, 246, 0.822);
+    padding: 10px;
+    border-radius: 8px;
+  }
+  a:hover {
+    background-color: rgba(36, 120, 246, 0.822);
+    color: white;
+    border-color: white;
   }
 
   p {
     text-align: center;
-    width: 200%;
+    width: 300%;
   }
 `;

@@ -5,6 +5,7 @@ export const Card = styled.div`
   margin: 20px auto;
   width: 80%;
   min-width: 50%;
+  min-height: 100vh;
   background-image: linear-gradient(
     90deg,
     rgba(74, 205, 17, 0.83),
@@ -32,6 +33,7 @@ export const Card = styled.div`
     align-content: space-between;
     align-items: center;
     background-color: #bdfefbe3;
+    justify-content: space-between;
   }
 
   p {

@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
 import { useUser } from "../../providers/user/user";
+import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +35,7 @@ const schema = yup.object().shape({
 
 export const Login = () => {
   const classes = useStyles();
-  const { addUser } = useUser();
+  const { addUser, Authenty } = useUser();
   const history = useHistory();
 
   const {
@@ -46,13 +47,19 @@ export const Login = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
     const { email, nome } = data;
     localStorage.setItem("@Event:e-mail", JSON.stringify(email));
-    localStorage.setItem("@Event:e-mail", JSON.stringify(nome));
+    localStorage.setItem("@Event:nome", JSON.stringify(nome));
     addUser(nome);
+    Authenty();
     return history.push("/home");
   };
+
+  const { auth } = useUser();
+
+  if (auth) {
+    return <Redirect to="/home" />;
+  }
 
   return (
     <div>
@@ -68,7 +75,12 @@ export const Login = () => {
         <p style={{ color: "red" }}>{errors.email?.message}</p>
         <TextField label="E-mail" name="E-mail" {...register("email")} />
         <p style={{ color: "red" }}>{errors.password?.message}</p>
-        <TextField label="Password" name="Password" {...register("password")} />
+        <TextField
+          type="password"
+          label="Password"
+          name="Password"
+          {...register("password")}
+        />
         <Button type="submit" variant="contained" color="secondary">
           Login
         </Button>

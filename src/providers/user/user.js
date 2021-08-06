@@ -4,17 +4,19 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState("");
+  const [auth, setAuth] = useState();
 
-  const token = localStorage.getItem("token") || "";
-
-  const [auth, setAuth] = useState(token);
+  const Authenty = () => {
+    const token = localStorage.getItem("@Event:nome") || "";
+    setAuth(token);
+  };
 
   const addUser = (data) => {
     setUser(data);
   };
 
   return (
-    <UserContext.Provider value={{ addUser, setUser, user }}>
+    <UserContext.Provider value={{ addUser, setUser, user, Authenty, auth }}>
       {children}
     </UserContext.Provider>
   );

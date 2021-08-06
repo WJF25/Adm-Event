@@ -1,7 +1,6 @@
 //gerar a consulta na api por aquui
 import { createContext, useState, useContext } from "react";
 import api from "../../services/api";
-import { useEffect } from "react";
 
 const CatalogoContext = createContext();
 
@@ -14,7 +13,6 @@ export const CatalogoProvider = ({ children }) => {
       .get(`?page=${page}`)
       .then((response) => setCatalogue(response.data))
       .catch((err) => console.log(err));
-    console.log(catalogue);
   }
 
   function nextPage() {
@@ -27,7 +25,9 @@ export const CatalogoProvider = ({ children }) => {
   }
 
   return (
-    <CatalogoContext.Provider value={{ catalogue, nextPage, prevPage, page }}>
+    <CatalogoContext.Provider
+      value={{ catalogue, nextPage, prevPage, page, apiGet }}
+    >
       {children}
     </CatalogoContext.Provider>
   );
