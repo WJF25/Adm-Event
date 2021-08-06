@@ -68,7 +68,7 @@ export const Confraternização = () => {
                     <p>Combinações Gastrônomicas</p>
                     <Sublista>
                       {item.food_pairing.map((item) => (
-                        <li key={idGenerator(99999)}>
+                        <li style={{ height: "10%" }} key={idGenerator(99999)}>
                           <p>{item}</p>
                         </li>
                       ))}

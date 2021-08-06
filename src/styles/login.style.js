@@ -9,6 +9,7 @@ export const WrapperLogin = styled.div`
   margin: 20vh auto;
   position: relative;
   min-height: 40vh;
+  animation: fromUp 2s ease-out;
 
   img {
     position: absolute;
@@ -35,5 +36,16 @@ export const WrapperLogin = styled.div`
   span {
     color: yellow;
     text-transform: uppercase;
+  }
+
+  @keyframes fromUp {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
 `;

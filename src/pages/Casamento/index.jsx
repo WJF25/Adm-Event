@@ -69,7 +69,9 @@ export const Casamento = () => {
                     <p>Combinações Gastrônomicas</p>
                     <Sublista>
                       {item.food_pairing.map((item) => (
-                        <li key={idGenerator(99999)}>{item}</li>
+                        <li style={{ height: "10%" }} key={idGenerator(99999)}>
+                          {item}
+                        </li>
                       ))}
                     </Sublista>{" "}
                     <Button onClick={() => handleClick(false)}>Fechar</Button>
