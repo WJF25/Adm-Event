@@ -49,7 +49,6 @@ export const Card = styled.div`
   }
 
   a {
-    color: rgba(36, 120, 246, 0.822);
     text-decoration: none;
     margin: 0 auto;
     width: 50%;
