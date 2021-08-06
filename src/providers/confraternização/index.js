@@ -6,12 +6,12 @@ export const ConfraProvider = ({ children }) => {
   const [confraDrinks, setConfraDrinks] = useState([]);
 
   const addConfraDrinks = (escolhaConfra) => {
-    setConfraDrinks([confraDrinks, escolhaConfra]);
+    setConfraDrinks([...confraDrinks, escolhaConfra]);
   };
 
   return (
     <ConfraContext.Provider
-      value={(confraDrinks, setConfraDrinks, addConfraDrinks)}
+      value={{ confraDrinks, setConfraDrinks, addConfraDrinks }}
     >
       {children}
     </ConfraContext.Provider>

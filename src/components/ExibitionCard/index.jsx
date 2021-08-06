@@ -1,9 +1,14 @@
+import "./styles.css";
 import { useState } from "react";
 import { generators } from "../../lib/generators";
 import { useCatalogue } from "../../providers/catalogo";
 import { useCasorio } from "../../providers/casamento";
 import { useForma } from "../../providers/formatura";
 import { useConfra } from "../../providers/confraternização";
+import { Button } from "../../styles/button.style";
+import { Img } from "../../styles/img.style";
+import { Card } from "../../styles/card.style";
+import { Sublista } from "../../styles/sublista.style";
 
 export const CardShow = () => {
   const [show, setShow] = useState(false);
@@ -32,43 +37,54 @@ export const CardShow = () => {
   };
 
   return (
-    <div className="ExbitionCard">
+    <Card className="ExbitionCard">
       <ul>
         {catalogue.map((item) => (
           <li key={idGenerator(99999)}>
             {" "}
-            <img src={item.image_url} alt={item.name} />
-            <p>Nome: {item.name}</p>
-            <p>Envasada em: {item.first_brewed}</p>
-            <p>Descrição: {item.description}</p>
-            <p>Volume em lts:{item.volume.value}</p>
+            <Img src={item.image_url} alt={item.name} />
+            <p>
+              <span>Nome: </span> {item.name}
+            </p>
+            <p>
+              <span>Envasada em: </span> {item.first_brewed}
+            </p>
+            <p>
+              <span> Descrição: </span>
+              {item.description}
+            </p>
+            <p>
+              <span>Volume em lts: </span>
+              {item.volume.value}
+            </p>
             {show && (
               <div>
                 {" "}
                 <p>Cominações Gastrônomicas</p>
-                <ul>
+                <Sublista>
                   {item.food_pairing.map((item) => (
-                    <li>{item}</li>
+                    <li key={idGenerator(99999)}>{item}</li>
                   ))}
-                </ul>{" "}
-                <button onClick={() => handleClick(false)}>Fechar</button>
+                </Sublista>{" "}
+                <Button onClick={() => handleClick(false)}>Fechar</Button>
               </div>
             )}
-            <button onClick={() => handleClick(true)}>
+            {/* <Button onClick={() => handleClick(true)}>
               Com o quê essa bebida combina?{" "}
-            </button>
-            <button onClick={() => handleClickCas(item.id)}>
+            </Button> */}
+            <Button onClick={() => handleClickCas(item.id)}>
               Escolher para Casamento
-            </button>
-            <button onClick={() => handleClickConfra(item.id)}>
+            </Button>
+            <Button onClick={() => handleClickConfra(item.id)}>
               Escolher para Confraternização{" "}
-            </button>
-            <button onClick={() => handleClickForma(item.id)}>
+            </Button>
+            <Button onClick={() => handleClickForma(item.id)}>
               Escolher para Formatura{" "}
-            </button>
+            </Button>
+            <a href="#top">voltar ao topo</a>
           </li>
         ))}
       </ul>
-    </div>
+    </Card>
   );
 };
