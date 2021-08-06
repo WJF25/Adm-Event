@@ -34,7 +34,7 @@ export const Card = styled.div`
     align-items: center;
     background-color: #bdfefbe3;
     justify-content: space-between;
-    animation: sudden 1s ease-out forwards;
+    /* animation: sudden 1s ease-out forwards; */
   }
 
   p {
@@ -60,12 +60,12 @@ export const Card = styled.div`
     font-size: 18px;
   }
 
-  @keyframes sudden {
+  /* @keyframes sudden {
     from {
       opacity: 0;
     }
     to {
       opacity: 1;
     }
-  }
+  } */
 `;
