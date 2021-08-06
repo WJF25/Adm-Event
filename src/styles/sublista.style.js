@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 export const Sublista = styled.ul`
   display: flex;
-
-  align-items: center;
+  flex-direction: row;
   list-style-type: none;
   width: 100%;
   padding: 0;
+  justify-content: space-evenly;
 
   li {
     color: rgba(16, 109, 31, 0.822);
-    width: 70%;
+    width: 100%;
+    height: 10%;
   }
 
   a {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useCasorio } from "../../providers/casamento/index";
 import { generators } from "../../lib/generators";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Card } from "../../styles/card.style";
 import { Img } from "../../styles/img.style";
 import { Sublista } from "../../styles/sublista.style";
@@ -9,11 +9,13 @@ import { Button, ButtonRemove } from "../../styles/button.style";
 import { Header, TitleWedding } from "../../styles/titulo.style";
 import noivos from "../../assets/noivos.png";
 import rings from "../../assets/rings.png";
+import { useUser } from "../../providers/user/user";
 
 export const Casamento = () => {
   const [show, setShow] = useState(false);
   const { casaDrinks, setCasaDrinks } = useCasorio();
   const { idGenerator } = generators;
+  const { auth } = useUser();
 
   const handleClick = (param) => {
     setShow(param);
@@ -24,6 +26,11 @@ export const Casamento = () => {
 
     setCasaDrinks(filtrado);
   };
+
+  if (!auth) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <>
       <Header>
@@ -40,20 +47,22 @@ export const Casamento = () => {
               <li key={idGenerator(99999)}>
                 {" "}
                 <Img src={item.image_url} alt={item.name} />
-                <p>
-                  <span>Nome: </span> {item.name}
-                </p>
-                <p>
-                  <span>Envasada em: </span> {item.first_brewed}
-                </p>
-                <p>
-                  <span> Descrição: </span>
-                  {item.description}
-                </p>
-                <p>
-                  <span>Volume em lts: </span>
-                  {item.volume.value}
-                </p>
+                <section>
+                  <p>
+                    <span>Nome: </span> {item.name}
+                  </p>
+                  <p>
+                    <span>Envasada em: </span> {item.first_brewed}
+                  </p>
+                  <p>
+                    <span> Descrição: </span>
+                    {item.description}
+                  </p>
+                  <p>
+                    <span>Volume em lts: </span>
+                    {item.volume.value}
+                  </p>
+                </section>
                 {show && (
                   <div>
                     {" "}

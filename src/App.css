@@ -3,8 +3,10 @@
 @import url("https://fonts.cdnfonts.com/css/champigna");
 @import url("http://fonts.cdnfonts.com/css/code-new-roman-2");
 
-.App {
+.App,
+.Routes {
   text-align: center;
+  min-height: 100vh;
 }
 
 .App-logo {

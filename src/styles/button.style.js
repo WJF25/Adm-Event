@@ -36,6 +36,17 @@ export const Section = styled.section`
   justify-content: center;
   width: 30%;
   margin: 10px auto;
+
+  a {
+    text-decoration: none;
+    margin: 0 auto;
+    width: 20%;
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    color: #51d151;
+    font-size: 18px;
+  }
 `;
 
 export const SectionCard = styled.section`
@@ -52,4 +63,13 @@ export const ButtonConfra = styled(Button)`
 
 export const ButtonCasa = styled(Button)`
   background-color: #b4b436;
+`;
+
+export const ButtonLogOut = styled(Button)`
+  width: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  background-color: firebrick;
+  padding: 5px;
 `;

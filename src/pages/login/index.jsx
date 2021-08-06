@@ -7,6 +7,9 @@ import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
 import { useUser } from "../../providers/user/user";
 import { Redirect } from "react-router-dom";
+import { WrapperLogin } from "../../styles/login.style";
+import Brewdig from "../../assets/Brewdig.jpg";
+import { TitleLogin } from "../../styles/titulo.style";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +38,7 @@ const schema = yup.object().shape({
 
 export const Login = () => {
   const classes = useStyles();
-  const { addUser, Authenty } = useUser();
+  const { addUser, auth, setAuth } = useUser();
   const history = useHistory();
 
   const {
@@ -51,19 +54,25 @@ export const Login = () => {
     localStorage.setItem("@Event:e-mail", JSON.stringify(email));
     localStorage.setItem("@Event:nome", JSON.stringify(nome));
     addUser(nome);
-    Authenty();
+    setAuth(true);
     return history.push("/home");
   };
-
-  const { auth } = useUser();
 
   if (auth) {
     return <Redirect to="/home" />;
   }
 
   return (
-    <div>
-      <h1 className="tituloLogin">Faça seu Login </h1>
+    <WrapperLogin>
+      <TitleLogin className="tituloLogin">
+        Temos a bebida certa para o seu Evento{" "}
+      </TitleLogin>
+      <h2>
+        Enquanto você escolhe tranquilamente pela nossa lista pode ir separando
+        por evento suas bebidas escolhidas, com a possibilidade de as remover
+        posteriormente caso mude de idéia.{" "}
+        <span>Faça login para poder começar.</span>
+      </h2>
       <form
         className={classes.root}
         noValidate
@@ -85,6 +94,7 @@ export const Login = () => {
           Login
         </Button>
       </form>
-    </div>
+      <img src={Brewdig} alt="Brews" />
+    </WrapperLogin>
   );
 };

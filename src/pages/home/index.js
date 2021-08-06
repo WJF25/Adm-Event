@@ -3,13 +3,14 @@ import { useCatalogue } from "../../providers/catalogo";
 import { Redirect } from "react-router-dom";
 import { useUser } from "../../providers/user/user";
 import { Link } from "react-router-dom";
-import { Button, Section } from "../../styles/button.style";
+import { Button, ButtonLogOut, Section } from "../../styles/button.style";
 import { Sublista } from "../../styles/sublista.style";
 import { WraperHome } from "../../styles/titulo.style";
 import trem1 from "../../assets/trem1.png";
 
 export const Home = () => {
   const { nextPage, prevPage, page } = useCatalogue();
+  const { auth, setAuth } = useUser();
 
   const handleClickPrev = () => {
     if (page === 1) {
@@ -27,8 +28,11 @@ export const Home = () => {
     }
   };
 
-  const { auth } = useUser();
-  console.log(auth);
+  const LogOut = () => {
+    localStorage.clear();
+    setAuth(false);
+  };
+
   if (!auth) {
     return <Redirect to="/" />;
   }
@@ -42,6 +46,7 @@ export const Home = () => {
           <h3>
             É só clicar no evento escolhido e depois conferir sua escolha.
           </h3>
+          <ButtonLogOut onClick={LogOut}>Sair</ButtonLogOut>
         </header>
       </WraperHome>
 
@@ -58,14 +63,10 @@ export const Home = () => {
       </Sublista>
       <CardShow />
       <Section style={{ width: "30%", margin: "10px auto" }}>
-        <Button onClick={handleClickPrev}>Voltar Pag</Button>
-        <Button onClick={handleClickNext}>Avança Pag</Button>
+        <Button onClick={handleClickPrev}>Pag Ante</Button>
+        <Button onClick={handleClickNext}>Pag Prox</Button>
+        <a href="#point">voltar ao topo</a>
       </Section>
     </div>
   );
 };
-
-//tela home precisa ter o link para as pages formatura-confraternização-casamento
-//essas páginas terão seu próprios states que receberão a escolha das pessoas
-//juntamente com o botão de remover
-//verificar se tem o email no local Storage - se não tiver redirecionar pra login

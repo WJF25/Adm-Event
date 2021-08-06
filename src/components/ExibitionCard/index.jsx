@@ -48,25 +48,27 @@ export const CardShow = () => {
   return (
     <Card className="ExbitionCard">
       <Button onClick={handleClikList}>GERAR LISTA </Button>
-      <ul>
+      <ul id="point">
         {catalogue.map((item) => (
           <li key={idGenerator(99999)}>
             {" "}
             <Img src={item.image_url} alt={item.name} />
-            <p>
-              <span>Nome: </span> {item.name}
-            </p>
-            <p>
-              <span>Envasada em: </span> {item.first_brewed}
-            </p>
-            <p>
-              <span> Descrição: </span>
-              {item.description}
-            </p>
-            <p>
-              <span>Volume em lts: </span>
-              {item.volume.value}
-            </p>
+            <section>
+              <p>
+                <span>Nome: </span> {item.name}
+              </p>
+              <p>
+                <span>Envasada em: </span> {item.first_brewed}
+              </p>
+              <p>
+                <span> Descrição: </span>
+                {item.description}
+              </p>
+              <p>
+                <span>Volume em lts: </span>
+                {item.volume.value}
+              </p>
+            </section>
             {show && (
               <div>
                 {" "}
@@ -89,7 +91,7 @@ export const CardShow = () => {
               <Button onClick={() => handleClickForma(item.id)}>
                 Escolher para Formatura{" "}
               </Button>
-              <a href="#top">voltar ao topo</a>
+              <a href="#point">voltar ao topo</a>
             </SectionCard>
           </li>
         ))}

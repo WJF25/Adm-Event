@@ -18,6 +18,7 @@ export const TitleConfra = styled.h1`
   margin: 0;
   color: #fce5a1;
   text-shadow: 3px 5px 5px black, 4px 5px whitesmoke;
+  z-index: 1;
 `;
 
 export const TitleForma = styled.h1`
@@ -37,6 +38,7 @@ export const WraperHome = styled.h1`
   margin: 0;
   color: #9cffcc;
   text-shadow: 3px 5px 5px black, 4px 5px #acff5a;
+  position: relative;
 
   h3 {
     font-family: "Code New Roman", sans-serif;
@@ -65,4 +67,9 @@ export const Header = styled.header`
     color: #51d151;
     font-size: 18px;
   }
+`;
+
+export const TitleLogin = styled(TitleConfra)`
+  color: white;
+  text-shadow: 3px 5px 5px black, 4px 5px black;
 `;

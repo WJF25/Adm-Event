@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Img = styled.img`
-  width: 150px;
-  height: 350px;
+  width: 30%;
+  height: 30%;
   filter: sepia(20%);
 
   &:hover {
