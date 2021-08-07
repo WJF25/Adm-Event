@@ -12,6 +12,7 @@ export const Card = styled.div`
     rgba(24, 34, 250, 0.81)
   );
   padding: 20px;
+  animation: sudden 3s ease-out backwards;
 
   ul {
     display: flex;
@@ -34,13 +35,18 @@ export const Card = styled.div`
     align-items: center;
     background-color: #bdfefbe3;
     justify-content: space-between;
-    /* animation: sudden 1s ease-out forwards; */
   }
 
   p {
     color: rgba(6, 153, 6, 0.822);
     text-align: left;
     width: 100%;
+    margin: 8px;
+  }
+
+  .scrolParagra {
+    height: 100px;
+    overflow: scroll;
   }
 
   span {
@@ -60,12 +66,32 @@ export const Card = styled.div`
     font-size: 18px;
   }
 
-  /* @keyframes sudden {
+  @keyframes sudden {
     from {
       opacity: 0;
     }
     to {
       opacity: 1;
     }
-  } */
+  }
+
+  @media (max-width: 1100px) {
+    li {
+      width: 50%;
+      max-height: 900px;
+    }
+    a {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    li {
+      width: 100%;
+      max-height: 900px;
+    }
+    a {
+      font-size: 13px;
+    }
+  }
 `;

@@ -54,7 +54,7 @@ export const Casamento = () => {
                   <p>
                     <span>Envasada em: </span> {item.first_brewed}
                   </p>
-                  <p>
+                  <p className="scrolParagra">
                     <span> Descrição: </span>
                     {item.description}
                   </p>

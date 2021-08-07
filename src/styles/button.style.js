@@ -66,10 +66,18 @@ export const ButtonCasa = styled(Button)`
 `;
 
 export const ButtonLogOut = styled(Button)`
-  width: 50px;
+  width: 60px;
   position: absolute;
   bottom: 0;
   right: 15px;
   background-color: firebrick;
-  padding: 5px;
+  padding: 5px 15px;
+
+  @media (max-width: 490px) {
+    width: 30px;
+    bottom: none;
+    padding: 3px 5px;
+    font-size: 10px;
+    right: 5px;
+  }
 `;

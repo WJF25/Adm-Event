@@ -33,4 +33,17 @@ export const Sublista = styled.ul`
     text-align: center;
     width: 300%;
   }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    height: 50%;
+    margin: 0 auto;
+    height: 200px;
+
+    li {
+      width: 83%;
+      margin: 5px auto;
+      font-size: 12px;
+    }
+  }
 `;

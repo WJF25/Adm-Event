@@ -8,7 +8,10 @@ import { Button } from "@material-ui/core";
 import { useUser } from "../../providers/user/user";
 import { Redirect } from "react-router-dom";
 import { WrapperLogin } from "../../styles/login.style";
-import Brewdig from "../../assets/Brewdig.jpg";
+import BrewdigXG from "../../assets/Brewdig.jpg";
+import BrewdigG from "../../assets/Brewdig800w.jpg";
+import BrewdigM from "../../assets/Brewdig480w.jpg";
+import BrewdigP from "../../assets/Brewdig320w.jpg";
 import { TitleLogin } from "../../styles/titulo.style";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,10 +19,20 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       margin: theme.spacing(1),
       width: "25ch",
+      [theme.breakpoints.down("sm")]: { width: "220px", height: "30px" },
     },
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      width: "  250px",
+      height: "260px",
+      padding: "0px 15px 5px 15px;",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "  350px",
+      padding: "0px 15px 5px 15px;",
+    },
   },
 }));
 
@@ -94,7 +107,12 @@ export const Login = () => {
           Login
         </Button>
       </form>
-      <img src={Brewdig} alt="Brews" />
+      <img
+        srcset={`${BrewdigP} 320w, ${BrewdigM} 480w, ${BrewdigG} 800w, ${BrewdigXG} 1200w`}
+        sizes="(max-width: 320px) 280px, (max-width: 480px) 300px, (max-width: 800px) 580px, (max-width: 1200px) 700px"
+        src={BrewdigXG}
+        alt="Brews"
+      />
     </WrapperLogin>
   );
 };

@@ -15,13 +15,15 @@ export const WrapperLogin = styled.div`
     position: absolute;
     /* box-shadow: 5px 5px red, 10px 10px blue, 15px 15px green; */
     border-radius: 5%;
-    filter: blur(2px);
+    filter: blur(1px);
+    width: 70%;
+    height: 150%;
   }
 
   form {
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.664);
-    padding: 30px;
+
     border-radius: 5%;
     margin: 15px;
   }
@@ -29,7 +31,7 @@ export const WrapperLogin = styled.div`
     color: black;
     z-index: 1;
     font-size: 18px;
-    width: 50%;
+    width: 90%;
     text-shadow: 3px 5px 10px white, 4px 5px 5px yellow;
   }
 
@@ -46,6 +48,51 @@ export const WrapperLogin = styled.div`
     to {
       opacity: 1;
       transform: translateY(0px);
+    }
+  }
+
+  @media (max-width: 320px) {
+    h2 {
+      font-size: 10px;
+      text-shadow: 3px 3px 5px white, 2px 2px 3px yellow;
+    }
+    img {
+      display: none;
+    }
+  }
+
+  @media (max-width: 490px) {
+    h2 {
+      font-size: 14px;
+      text-shadow: 3px 3px 5px white, 2px 2px 3px yellow;
+    }
+
+    img {
+      display: none;
+    }
+  }
+
+  @media (max-width: 800px) {
+    h2 {
+      font-size: 14px;
+      text-shadow: 4px 4px 6px white, 3px 3px 4px yellow;
+    }
+
+    img {
+      width: 80%;
+      height: 70%;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    h2 {
+      font-size: 25px;
+      text-shadow: 4px 4px 6px white, 3px 3px 4px yellow;
+    }
+
+    img {
+      width: 70%;
+      height: 150%;
     }
   }
 `;
