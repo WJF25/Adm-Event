@@ -63,7 +63,7 @@ export const Casamento = () => {
                     {item.volume.value}
                   </p>
                 </section>
-                {show && (
+                {show === item.id && (
                   <div>
                     {" "}
                     <p>Combinações Gastrônomicas</p>
@@ -77,7 +77,7 @@ export const Casamento = () => {
                     <Button onClick={() => handleClick(false)}>Fechar</Button>
                   </div>
                 )}
-                <Button onClick={() => handleClick(true)}>
+                <Button onClick={() => handleClick(item.id)}>
                   Com o quê essa bebida combina?{" "}
                 </Button>
                 <ButtonRemove onClick={() => handleClickRemove(item.id)}>

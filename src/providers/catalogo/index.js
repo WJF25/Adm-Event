@@ -1,4 +1,5 @@
 //gerar a consulta na api por aquui
+import { useCallback } from "react";
 import { createContext, useState, useContext } from "react";
 import api from "../../services/api";
 
@@ -8,21 +9,22 @@ export const CatalogoProvider = ({ children }) => {
   const [catalogue, setCatalogue] = useState([]);
   const [page, setPage] = useState(1);
 
-  function apiGet() {
+  const apiGet = useCallback(() => {
     api
       .get(`?page=${page}`)
       .then((response) => setCatalogue(response.data))
       .catch((err) => console.log(err));
-  }
+  }, [page]);
 
-  function nextPage() {
+  const nextPage = useCallback(() => {
     setPage(page + 1);
     apiGet();
-  }
-  function prevPage() {
+  }, [apiGet, page]);
+
+  const prevPage = useCallback(() => {
     setPage(page - 1);
     apiGet();
-  }
+  }, [apiGet, page]);
 
   return (
     <CatalogoContext.Provider

@@ -31,7 +31,8 @@ export const Sublista = styled.ul`
 
   p {
     text-align: center;
-    width: 300%;
+    width: 100%;
+    overflow-y: scroll;
   }
 
   @media (max-width: 800px) {

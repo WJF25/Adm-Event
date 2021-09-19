@@ -1,4 +1,3 @@
-import "./styles.css";
 import { useState } from "react";
 import { generators } from "../../lib/generators";
 import { useCatalogue } from "../../providers/catalogo";
@@ -14,6 +13,7 @@ import {
 import { Img } from "../../styles/img.style";
 import { Card } from "../../styles/card.style";
 import { Sublista } from "../../styles/sublista.style";
+import { useEffect } from "react";
 
 export const CardShow = () => {
   const [show, setShow] = useState(false);
@@ -41,13 +41,12 @@ export const CardShow = () => {
     addFormaDrinks(chosen);
   };
 
-  const handleClikList = () => {
+  useEffect(() => {
     apiGet();
-  };
+  }, []);
 
   return (
     <Card className="ExbitionCard">
-      <Button onClick={handleClikList}>GERAR LISTA </Button>
       <ul id="point">
         {catalogue.map((item) => (
           <li key={idGenerator(99999)}>

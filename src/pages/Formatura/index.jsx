@@ -62,7 +62,7 @@ export const Formatura = () => {
                     {item.volume.value}
                   </p>
                 </section>
-                {show && (
+                {show === item.id && (
                   <div>
                     {" "}
                     <p>Combinações Gastrônomicas</p>
@@ -76,7 +76,7 @@ export const Formatura = () => {
                     <Button onClick={() => handleClick(false)}>Fechar</Button>
                   </div>
                 )}
-                <Button onClick={() => handleClick(true)}>
+                <Button onClick={() => handleClick(item.id)}>
                   Com o quê essa bebida combina?{" "}
                 </Button>
                 <ButtonRemove onClick={() => handleClickRemove(item.id)}>

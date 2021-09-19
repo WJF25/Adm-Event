@@ -108,7 +108,7 @@ export const Login = () => {
         </Button>
       </form>
       <img
-        srcset={`${BrewdigP} 320w, ${BrewdigM} 480w, ${BrewdigG} 800w, ${BrewdigXG} 1200w`}
+        srcSet={`${BrewdigP} 320w, ${BrewdigM} 480w, ${BrewdigG} 800w, ${BrewdigXG} 1200w`}
         sizes="(max-width: 320px) 280px, (max-width: 480px) 300px, (max-width: 800px) 580px, (max-width: 1200px) 700px"
         src={BrewdigXG}
         alt="Brews"

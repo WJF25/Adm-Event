@@ -75,6 +75,7 @@ export const WraperHome = styled.h1`
     img {
       width: 90%;
       margin: 10px auto;
+      height: 50vh;
     }
   }
 
@@ -113,6 +114,7 @@ export const Header = styled.header`
 
   img {
     width: 90%;
+    height: 50vh;
   }
   a {
     color: rgba(36, 120, 246, 0.822);
