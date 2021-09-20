@@ -43,6 +43,7 @@ export const CardShow = () => {
 
   useEffect(() => {
     apiGet();
+    // eslint-disable-next-line
   }, []);
 
   return (

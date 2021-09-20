@@ -46,7 +46,9 @@ export const Home = () => {
           <h3>
             É só clicar no evento escolhido e depois conferir sua escolha.
           </h3>
-          <ButtonLogOut onClick={LogOut}>Sair</ButtonLogOut>
+          <ButtonLogOut id="#point" onClick={LogOut}>
+            Sair
+          </ButtonLogOut>
         </header>
       </WraperHome>
 
